@@ -3,9 +3,8 @@ import { Platform, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/screen/HomeScreen';
+import listScreen from './src/screen/listScreen';
 import store from './src/store';
-
-const initialState = {};
 
 class App extends Component {
   componentWillMount() {
@@ -14,7 +13,7 @@ class App extends Component {
   render() {
       const MainNavigator = StackNavigator({
         home: { screen: HomeScreen },
-        home2: { screen: HomeScreen },
+        list: { screen: listScreen },
       }, {
           cardStyle: {
             paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
