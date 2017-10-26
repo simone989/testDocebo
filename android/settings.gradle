@@ -1,0 +1,3 @@
+rootProject.name = 'testDocebo'
+
+include ':app'
