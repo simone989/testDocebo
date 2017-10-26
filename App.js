@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, StatusBar, Provider } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
-import { logger } from 'redux-logger';
-import ReduxThunk from 'redux-thunk';
 import HomeScreen from './src/screen/HomeScreen';
+import store from './src/store';
 
 const initialState = {};
 
@@ -12,15 +12,6 @@ class App extends Component {
     console.log('MOUNT DEL COMPONENTO PRINCIPALE');
   }
   render() {
-      /*
-      const store = createStore(
-        appReducer,
-        initialState,
-        applyMiddleware(logger, ReduxThunk)
-      );
-      */
-      // store.dispatch(downloadInitialTodolist());
-
       const MainNavigator = StackNavigator({
         home: { screen: HomeScreen },
         home2: { screen: HomeScreen },
@@ -31,7 +22,9 @@ class App extends Component {
       });
 
       return (
+        <Provider store={store}>
           <MainNavigator />
+        </Provider>
       );
     }
 }

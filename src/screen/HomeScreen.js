@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Content, Button, Text, Item, Input, Label, Card, CardItem, Picker } from 'native-base';
+import { connect } from 'react-redux';
+import { downloadData } from '../actions/actions';
+
+const mapStateToProps = state => ({
+        data: state.data,
+        filterFunction: state.filterFunction
+});
 
 class HomeScreen extends Component {
 
@@ -16,7 +23,7 @@ state = {
 
 onValueChangeType(value: string) {
   this.setState({
-    selected2: value
+    courseType: value
   });
 }
 render() {
@@ -24,7 +31,6 @@ render() {
         <Container>
             <Content>
                 <Card>
-                    <Item stackedLabel error={this.state.error_input_itemName} style={{ flex: 1 }}>
                     <Label>Item Name</Label>
                     <Input
                     onChangeText={(itemName) => {
@@ -35,7 +41,6 @@ render() {
                         }
                         }}
                     />
-                    </Item>
                     <Label>Course Type</Label>
                     <Picker
                        mode="dropdown"
@@ -55,19 +60,29 @@ render() {
                     <Item stackedLabel style={{ flex: 1 }}>
                     <Button
                       block primary onPress={() => {
-                        if (this.state.email === '') {
+                        if (this.state.itemName === '') {
                           this.setState({ error_input_email: true });
+                          console.log('Error, no input name');
                         }
-                        if (this.state.password === '') {
-                          this.setState({ error_input_password: true });
-                        }
-                        if (this.state.email !== '' && this.state.password !== '') {
-                          this.props.loginUser({
-                              email: this.state.email,
-                              password: this.state.password,
+                        if (this.state.itemName !== '') {
+                          this.props.downloadData({
+                              itemName: this.state.itemName,
+                              courseType: this.state.courseType,
                               navigateTo: (screen) => this.props.navigation.navigate(screen)
                           });
                         }
+                      }
+                    }
+                    >
+                    <Text>Search</Text>
+                    </Button>
+                    </Item>
+                    </CardItem>
+                    <CardItem>
+                    <Item stackedLabel style={{ flex: 1 }}>
+                    <Button
+                      block primary onPress={() => {
+                        console.log(this.props.data);
                       }
                     }
                     >
@@ -83,4 +98,4 @@ render() {
 }
 
 
-export default HomeScreen;
+export default connect(mapStateToProps, { downloadData })(HomeScreen);
