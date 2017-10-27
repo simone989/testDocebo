@@ -9,10 +9,14 @@ export const downloadData = ({ itemName, courseType, navigateTo }) => {
         var urlRequest = '';
         console.log('AVVIO AZIONE DOWNLOAD');
         dispatch({ type: DOWNLOAD_DATA_START });
-        if (courseType === 'all') {
+        if (courseType === 'all' && itemName !== '') {
           urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=webinar&type[]=mobile&type[]=classroom&type[]=elearning&type[]=learning_plan&search_text=' + itemName;
-        } else {
+        } else if (itemName === '' && courseType === 'all') {
+          urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=webinar&type[]=mobile&type[]=classroom&type[]=elearning&type[]=learning_plan';
+        } else if (itemName !== '' && courseType !== 'all') {
           urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=' + courseType + '&search_text=' + itemName;
+        } else {
+            urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=' + courseType;
         }
         console.log(urlRequest);
         fetch(urlRequest, {

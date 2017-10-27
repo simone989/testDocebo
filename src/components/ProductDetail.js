@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import HTMLView from 'react-native-htmlview';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -28,22 +29,15 @@ const styles = StyleSheet.create({
 
 
 class ProductDetail extends React.Component {
-  state = { newPrice: this.props.price }
   render() {
-    const { title, desc } = this.props;
+    const { title, type, price, desc } = this.props;
     const { wrapper } = styles;
     return (
       <View style={wrapper}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.desc}>{desc}</Text>
-          <Text style={styles.price}>{this.state.newPrice} Euro</Text>
-          <TextInput
-            style={styles.newPrice}
-            placeholder="New Price"
-            onChangeText={text => {
-              this.setState({ newPrice: parseFloat(text) });
-              this.props.onPriceUpdate(parseFloat(text));
-            }}
+          <Text>{type} | {price}</Text>
+          <HTMLView
+            value={desc}
           />
       </View>
     );

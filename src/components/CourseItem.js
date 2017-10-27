@@ -3,9 +3,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import Thumbnail from './Thumbnail';
 import ProductDetail from './ProductDetail';
 
-class OrderItem extends Component {
-  state = { newPrice: 25 }
-
+class CourseItem extends Component {
   render() {
     console.log(this.props);
     return (
@@ -13,11 +11,12 @@ class OrderItem extends Component {
         style={styles.wrapper}
         activeOpacity={0.8}
       >
-        <Thumbnail url="https://images-na.ssl-images-amazon.com/images/I/51OqHiEyDtL.jpg" />
+        <Thumbnail url={this.props.imgThumb !== '' ? 'https://'.concat(this.props.imgThumb) : 'https://www.oatey.com/ASSETS/WEB_THEMES//OATEY/images/NoImage.png'} />
         <ProductDetail
-          title="Mastering React Native"
-          desc="Libro di testo utilizzato per il corso di LAP 2 @ Unict"
-          price={this.state.newPrice}
+          title={this.props.itemName}
+          type={this.props.itemType}
+          price={this.props.itemPrice}
+          desc={this.props.itemDescr}
         />
       </TouchableOpacity>
     );
@@ -40,4 +39,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default OrderItem;
+export default CourseItem;

@@ -34,12 +34,9 @@ render() {
                     <Label>Item Name</Label>
                     <Input
                     onChangeText={(itemName) => {
-                        if (itemName === '') {
-                          this.setState({ error_input_itemName: true });
-                        } else {
-                          this.setState({ itemName, error_input_itemName: false });
+                          this.setState({ itemName });
                         }
-                        }}
+                    }
                     />
                     <Label>Course Type</Label>
                     <Picker
@@ -60,17 +57,11 @@ render() {
                     <Item stackedLabel style={{ flex: 1 }}>
                     <Button
                       block primary onPress={() => {
-                        if (this.state.itemName === '') {
-                          this.setState({ error_input_email: true });
-                          console.log('Error, no input name');
-                        }
-                        if (this.state.itemName !== '') {
                           this.props.downloadData({
                               itemName: this.state.itemName,
                               courseType: this.state.courseType,
                               navigateTo: (screen) => this.props.navigation.navigate(screen)
                           });
-                        }
                       }
                     }
                     >
