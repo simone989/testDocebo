@@ -2,6 +2,8 @@ import {
   DOWNLOAD_DATA_SUCCESS,
   DOWNLOAD_DATA_START,
   DOWNLOAD_DATA_FAIL,
+  USER_FILTER_TYPE_FILTER,
+  USER_ORDER_TYPE_FILTER
 } from './types';
 
 export const downloadData = ({ itemName, courseType, navigateTo }) => {

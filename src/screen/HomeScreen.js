@@ -79,18 +79,6 @@ render() {
                     </Button>
                     </Item>
                     </CardItem>
-                    <CardItem>
-                    <Item stackedLabel style={{ flex: 1 }}>
-                    <Button
-                      block primary onPress={() => {
-                        console.log(this.props.data);
-                      }
-                    }
-                    >
-                    <Text>Search</Text>
-                    </Button>
-                    </Item>
-                    </CardItem>
             </Card>
         </Content>
     </Container>

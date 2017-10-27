@@ -7,7 +7,8 @@ import {
 let initialState = {
   error: null,
   isLoading: false,
-  data: null
+  data: null,
+  dataFilter: null
 };
 
 export default downloadReducer = (state = initialState, action) => {
@@ -15,7 +16,7 @@ export default downloadReducer = (state = initialState, action) => {
     case DOWNLOAD_DATA_START:
       return { ...state, isLoading: true, error: null };
     case DOWNLOAD_DATA_SUCCESS:
-      return { ...state, data: action.payload, isLoading: false, error: null };
+      return { ...state, data: action.payload, dataFilter: action.payload, isLoading: false, error: null };
     case DOWNLOAD_DATA_FAIL:
       return {
         error: action.payload,

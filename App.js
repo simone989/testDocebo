@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/screen/HomeScreen';
 import listScreen from './src/screen/listScreen';
+import filtersScreen from './src/screen/filtersScreen';
 import store from './src/store';
 
 class App extends Component {
@@ -21,11 +22,16 @@ class App extends Component {
           navigationOptions: {
               header: null
           }
-         }
-      }, {
-          cardStyle: {
-            paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
-        }
+        },
+        filters: { screen: filtersScreen,
+          navigationOptions: {
+              header: null
+            }
+          },
+        }, {
+            cardStyle: {
+              paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+          }
       });
 
       return (
