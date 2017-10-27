@@ -12,8 +12,16 @@ class App extends Component {
   }
   render() {
       const MainNavigator = StackNavigator({
-        home: { screen: HomeScreen },
-        list: { screen: listScreen },
+        home: { screen: HomeScreen,
+          navigationOptions: {
+              header: null
+          }
+        },
+        list: { screen: listScreen,
+          navigationOptions: {
+              header: null
+          }
+         }
       }, {
           cardStyle: {
             paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight

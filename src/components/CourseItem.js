@@ -5,7 +5,6 @@ import ProductDetail from './ProductDetail';
 
 class CourseItem extends Component {
   render() {
-    console.log(this.props);
     return (
       <TouchableOpacity
         style={styles.wrapper}

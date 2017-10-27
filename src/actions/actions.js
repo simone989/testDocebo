@@ -16,7 +16,7 @@ export const downloadData = ({ itemName, courseType, navigateTo }) => {
         } else if (itemName !== '' && courseType !== 'all') {
           urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=' + courseType + '&search_text=' + itemName;
         } else {
-            urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=' + courseType;
+          urlRequest = 'https://demomobile.docebosaas.com/learn/v1/catalog?type[]=' + courseType;
         }
         console.log(urlRequest);
         fetch(urlRequest, {

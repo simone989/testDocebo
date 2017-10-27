@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Input, Label, Card, CardItem, Item } from 'native-base';
+import { Container, Content, Label, Card, CardItem, Item, Button, Header, Left, Body, Right, Title, Text } from 'native-base';
 import { connect } from 'react-redux';
 import { downloadData } from '../actions/actions';
 import CourseItem from '../components/CourseItem';
@@ -10,12 +10,12 @@ const mapStateToProps = state => ({
 });
 
 class listScreen extends Component {
-
+/*
 static navigationOptions = {
     title: 'Result Screen',
-    //headerLeft: <Button title="Login" onPress={() => navigation.goBack()} />,
-    //headerRight: <Button title="Login" onPress={() => navigation.goBack()} />,
+    headerRight: <Button title='Filters' onPress={() => console.log('Apri i filtri')} />,
 }
+*/
 
 state = {
     itemName: '',
@@ -31,8 +31,27 @@ onValueChangeType(value: string) {
   });
 }
 render() {
+    const { navigate } = this.props.navigation;
     return (
         <Container>
+
+          <Header>
+             <Left>
+               <Button
+                onPress={() => navigate('home')}
+               >
+                <Text>Back</Text>
+               </Button>
+             </Left>
+             <Body>
+               <Title>List Screen</Title>
+             </Body>
+             <Right>
+               <Button
+                 title="Filter"
+               />
+             </Right>
+         </Header>
             <Content>
                 <Card>
                   <CardItem>

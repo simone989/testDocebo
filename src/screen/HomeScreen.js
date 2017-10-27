@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Button, Text, Item, Input, Label, Card, CardItem, Picker } from 'native-base';
+import { Container, Content, Button, Text, Item, Input, Label, Card, CardItem, Picker, Spinner, Header, Body, Title } from 'native-base';
 import { connect } from 'react-redux';
 import { downloadData } from '../actions/actions';
 
@@ -27,8 +27,18 @@ onValueChangeType(value: string) {
   });
 }
 render() {
+  if (this.props.isLoading) {
+    return (
+      <Spinner />
+    );
+  }
     return (
         <Container>
+          <Header>
+             <Body>
+               <Title>Search Screen</Title>
+             </Body>
+         </Header>
             <Content>
                 <Card>
                     <Label>Item Name</Label>
