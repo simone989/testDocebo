@@ -29,7 +29,10 @@ export default mainReducer = (state = initialState, action) => {
         data: state.data.concat(action.payload),
         dataFilter: state.data.concat(action.payload),
         isLoading: false,
-        error: null
+        error: null,
+        radioSelect_AtoZ: true,
+        radioSelect_ZtoA: false,
+        courseType: 'all'
       };
     case DOWNLOAD_DATA_FAIL:
       return {
@@ -63,8 +66,8 @@ export default mainReducer = (state = initialState, action) => {
           dataFilter: state.data.sort((a, b) => (a.course_type.toUpperCase() > b.course_type.toUpperCase()) ? 1 : ((b.course_type.toUpperCase() > a.course_type.toUpperCase()) ? -1 : 0)),
           isLoading: false,
           error: null,
-          radioSelect_AtoZ: true,
-          radioSelect_ZtoA: false,
+          radioSelect_AtoZ: false,
+          radioSelect_ZtoA: true,
           courseType: action.payload.filterType
         };
       }  else if (action.payload.filterOrder === 'ZtoA') {
