@@ -25,9 +25,6 @@ class listScreen extends Component {
   }
   componentWillMount() {
     const { radioSelect_AtoZ, radioSelect_ZtoA, courseType } = this.props.navigation.state.params;
-    console.log(radioSelect_AtoZ);
-    console.log(radioSelect_ZtoA);
-    console.log(courseType);
     this.setState({
       radioSelect_AtoZ: radioSelect_AtoZ,
       radioSelect_ZtoA: radioSelect_ZtoA,

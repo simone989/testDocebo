@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 import mainReducer from './mainReducer';
-import filterReducer from './filterReducer';
+
 
 const appReducer = combineReducers({
-  data: mainReducer,
-  filterFunction: filterReducer
+  data: mainReducer //http://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html
 });
 
 export default appReducer;

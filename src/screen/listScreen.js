@@ -5,8 +5,7 @@ import { downloadData } from '../actions/actions';
 import CourseItem from '../components/CourseItem';
 
 const mapStateToProps = state => ({
-        data: state.data,
-        filterFunction: state.filterFunction
+        data: state.data
 });
 
 class listScreen extends Component {
