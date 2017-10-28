@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
 class listScreen extends Component {
   render() {
       const { navigate } = this.props.navigation;
+      console.log(this.props)
       return (
           <Container>
 
@@ -28,7 +29,7 @@ class listScreen extends Component {
                </Body>
                <Right>
                  <Button
-                   onPress={() => navigate('filters')}
+                   onPress={() => navigate('filters', { radioSelect_AtoZ: this.props.data.radioSelect_AtoZ, radioSelect_ZtoA: this.props.data.radioSelect_ZtoA, courseType: this.props.data.courseType })}
                  >
                  <Text>Filters</Text>
                 </Button>
@@ -45,9 +46,9 @@ class listScreen extends Component {
                       this.props.data.dataFilter.map((courseInfo, i) => (
                       <CourseItem
                         key={i}
-                        imgThumb={courseInfo.item_thumbnail.slice(2)}
+                        imgThumb={courseInfo.item_thumbnail != null ? courseInfo.item_thumbnail.slice(2) : ''}
                         itemName={courseInfo.item_name}
-                        itemType={courseInfo.item_type}
+                        itemType={courseInfo.course_type}
                         itemPrice={courseInfo.item_price}
                         itemDescr={courseInfo.item_description}
                       />)

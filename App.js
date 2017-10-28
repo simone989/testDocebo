@@ -8,9 +8,7 @@ import filtersScreen from './src/screen/filtersScreen';
 import store from './src/store';
 
 class App extends Component {
-  componentWillMount() {
-    console.log('MOUNT DEL COMPONENTO PRINCIPALE');
-  }
+
   render() {
       const MainNavigator = StackNavigator({
         home: { screen: HomeScreen,

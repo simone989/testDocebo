@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import { Container, Content, Label, Card, CardItem, Item, Button, Header, Left, Body, Right, Title, Text, ListItem, Radio, Picker } from 'native-base';
 import { connect } from 'react-redux';
-import { downloadData } from '../actions/actions';
+import { filterOrderByType } from '../actions/actions';
 import CourseItem from '../components/CourseItem';
 
+
 const mapStateToProps = state => ({
-        data: state.data,
-        filterFunction: state.filterFunction
+        data: state.data
 });
+
+/*
+const { pet } = this.props.navigation.state.params
+onPress={() => this.props.navigation.navigate( "Pet",{ pet: pet })}
+                >
+
+*/
+
 
 class listScreen extends Component {
   state = {
-      courseType: 'all'
-    }
-
+      courseType: 'all',
+      radioSelect_AtoZ: true,
+      radioSelect_ZtoA: false,
+  }
+  componentWillMount() {
+    const { radioSelect_AtoZ, radioSelect_ZtoA, courseType } = this.props.navigation.state.params;
+    console.log(radioSelect_AtoZ);
+    console.log(radioSelect_ZtoA);
+    console.log(courseType);
+    this.setState({
+      radioSelect_AtoZ: radioSelect_AtoZ,
+      radioSelect_ZtoA: radioSelect_ZtoA,
+      courseType: courseType
+    })
+  }
   onValueChangeType(value: string) {
     this.setState({
       courseType: value
@@ -37,7 +57,7 @@ class listScreen extends Component {
                </Body>
                <Right>
                  <Button
-                   onPress={() => console.log('Cancella tutto')}
+                   onPress={() => this.setState({ radioSelect_AtoZ: true, radioSelect_ZtoA: false, courseType: 'all' })}
                  >
                  <Text>Clear All</Text>
                 </Button>
@@ -46,16 +66,20 @@ class listScreen extends Component {
               <Content>
 
                   <Label>Sort type by</Label>
-                  <ListItem>
+                  <ListItem
+                     onPress={() => this.setState({ radioSelect_AtoZ: true, radioSelect_ZtoA: false }, () => console.log('A to Z selected'))}
+                  >
                     <Text>A to Z</Text>
                     <Right>
-                      <Radio selected={true} />
+                      <Radio selected={this.state.radioSelect_AtoZ} />
                     </Right>
                   </ListItem>
-                  <ListItem>
+                  <ListItem
+                    onPress={() => this.setState({ radioSelect_ZtoA: true, radioSelect_AtoZ: false }, () => console.log('Z to A selected'))}
+                  >
                     <Text>Z to A</Text>
                     <Right>
-                      <Radio selected={false} />
+                      <Radio selected={this.state.radioSelect_ZtoA} />
                     </Right>
                   </ListItem>
 
@@ -76,8 +100,9 @@ class listScreen extends Component {
                   </Picker>
                   <Button
                     block primary onPress={() => {
-                        this.props.downloadData({
-                            itemName: this.state.itemName,
+                        this.props.filterOrderByType({
+                            radioSelect_AtoZ: this.state.radioSelect_AtoZ,
+                            radioSelect_ZtoA: this.state.radioSelect_ZtoA,
                             courseType: this.state.courseType,
                             navigateTo: (screen) => this.props.navigation.navigate(screen)
                         });
@@ -94,4 +119,4 @@ class listScreen extends Component {
 }
 
 
-export default connect(mapStateToProps, { downloadData })(listScreen);
+export default connect(mapStateToProps, { filterOrderByType })(listScreen);

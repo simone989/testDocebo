@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import downloadReducer from './downloadReducer';
+import mainReducer from './mainReducer';
 import filterReducer from './filterReducer';
 
 const appReducer = combineReducers({
-  data: downloadReducer,
+  data: mainReducer,
   filterFunction: filterReducer
 });
 
