@@ -71,7 +71,7 @@ export default mainReducer = (state = initialState, action) => {
           courseType: action.payload.filterType
         };
       }  else if (action.payload.filterOrder === 'ZtoA') {
-        return {
+         return {
           data: state.data,
           dataFilter: state.data.filter((a) => a.course_type === action.payload.filterType).sort((a, b) => (a.course_type.toUpperCase() < b.course_type.toUpperCase()) ? 1 : ((b.course_type.toUpperCase() < a.course_type.toUpperCase()) ? -1 : 0)),
           isLoading: false,
@@ -79,15 +79,18 @@ export default mainReducer = (state = initialState, action) => {
           radioSelect_AtoZ: false,
           radioSelect_ZtoA: true,
           courseType: action.payload.filterType
-        };
+         };
       }
      case RESET_DATA:
       return {
         data: [],
         dataFilter: [],
         isLoading: false,
-        error: null
-      }
+        error: null,
+        radioSelect_AtoZ: true,
+        radioSelect_ZtoA: false,
+        courseType: 'all'
+      };
     default:
       return state;
   }

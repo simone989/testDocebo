@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Label, Card, CardItem, Item, Button, Header, Left, Body, Right, Title, Text } from 'native-base';
+import { Container, Content, Label, Card, CardItem, Item, Button, Header, Left, Body, Right, Title, Text, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { downloadData } from '../actions/actions';
 import CourseItem from '../components/CourseItem';
@@ -10,11 +10,14 @@ const mapStateToProps = state => ({
 
 class listScreen extends Component {
   render() {
+    if (this.props.isLoading) {
+      return (
+        <Spinner />
+      );
+    }
       const { navigate } = this.props.navigation;
-      console.log(this.props)
       return (
           <Container>
-
             <Header>
                <Left>
                  <Button

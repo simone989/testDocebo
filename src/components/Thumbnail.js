@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { Image } from 'react-native';
 
-const Thumbnail = ({ url, style }) => (
+const Thumbnail = ({ url }) => (
   <Image
     source={{ uri: url }}
     resizeMode="contain"

@@ -27,11 +27,6 @@ onValueChangeType(value: string) {
   });
 }
 render() {
-  if (this.props.isLoading) {
-    return (
-      <Spinner />
-    );
-  }
     return (
         <Container>
           <Header>
