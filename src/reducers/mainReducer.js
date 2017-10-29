@@ -4,6 +4,7 @@ import {
   DOWNLOAD_DATA_FAIL,
   USER_ORDER_TYPE_FILTER,
   RESET_DATA,
+  USER_FILTER_START
 } from '../actions/types';
 
 let initialState = {
@@ -38,6 +39,11 @@ export default mainReducer = (state = initialState, action) => {
       return {
         error: action.payload,
         isLoading: false
+      };
+    case USER_FILTER_START:
+      return {
+        ...state,
+        isLoading: true
       };
     case USER_ORDER_TYPE_FILTER:
      if (action.payload.filterOrder === 'AtoZ' && action.payload.filterType === 'all') {

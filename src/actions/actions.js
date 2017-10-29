@@ -3,7 +3,8 @@ import {
   DOWNLOAD_DATA_START,
   DOWNLOAD_DATA_FAIL,
   RESET_DATA,
-  USER_ORDER_TYPE_FILTER
+  USER_ORDER_TYPE_FILTER,
+  USER_FILTER_START
 } from './types';
 
 export const downloadData = ({ itemName, courseType, navigateTo }) => {
@@ -47,11 +48,13 @@ export const downloadData = ({ itemName, courseType, navigateTo }) => {
 
 export const filterOrderByType = ({ radioSelect_AtoZ, radioSelect_ZtoA, courseType, navigateTo }) => {
   return (dispatch) => {
+    dispatch({ type: USER_FILTER_START })
+    navigateTo('list');
     if (radioSelect_AtoZ === true && radioSelect_ZtoA === false) {
         dispatch({ type: USER_ORDER_TYPE_FILTER, payload: { filterOrder: 'AtoZ', filterType: courseType } });
     } else if (radioSelect_AtoZ === false && radioSelect_ZtoA === true) {
         dispatch({ type: USER_ORDER_TYPE_FILTER, payload: { filterOrder: 'ZtoA', filterType: courseType } });
     }
-    navigateTo('list');
+
   };
 };
