@@ -31,7 +31,7 @@ class App extends Component {
           }
       });
       return (
-        <Provider store={store}> {/* Add store in the project*/}
+        <Provider store={store}>
           <MainNavigator />
         </Provider>
       );

@@ -10,7 +10,7 @@ class CourseItem extends Component {
         style={styles.wrapper}
         activeOpacity={0.8}
       >
-        <Thumbnail url={this.props.imgThumb !== '' ? `https://${this.props.imgThumb}` : 'https://www.oatey.com/ASSETS/WEB_THEMES//OATEY/images/NoImage.png'} /> {/* Add 'https://' to the string, if url image exist */}
+        <Thumbnail url={this.props.imgThumb !== '' ? `https://${this.props.imgThumb}` : 'https://www.oatey.com/ASSETS/WEB_THEMES//OATEY/images/NoImage.png'} />
         <ProductDetail
           title={this.props.itemName}
           type={this.props.itemType}
