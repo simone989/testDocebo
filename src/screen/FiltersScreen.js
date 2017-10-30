@@ -87,12 +87,12 @@ class listScreen extends Component {
           </Picker>
           <Button
           block primary onPress={() => {
-          this.props.filterOrderByType({
-          radioSelect_AtoZ: this.state.radioSelect_AtoZ,
-          radioSelect_ZtoA: this.state.radioSelect_ZtoA,
-          courseType: this.state.courseType,
-          navigateTo: (screen) => this.props.navigation.navigate(screen)
-          });
+            this.props.filterOrderByType({
+              radioSelect_AtoZ: this.state.radioSelect_AtoZ,
+              radioSelect_ZtoA: this.state.radioSelect_ZtoA,
+              courseType: this.state.courseType,
+              navigateTo: (screen) => this.props.navigation.navigate(screen)
+            });
           }
           }
           >

@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 class listScreen extends Component {
   render() {
-    if (this.props.isLoading) {
+    if (this.props.data.isLoading) {
       return (
         <Spinner />
       );

@@ -3,8 +3,8 @@ import { Platform, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/screen/HomeScreen';
-import listScreen from './src/screen/listScreen';
-import filtersScreen from './src/screen/filtersScreen';
+import listScreen from './src/screen/ListScreen';
+import filtersScreen from './src/screen/FiltersScreen';
 import store from './src/store';
 
 class App extends Component {
