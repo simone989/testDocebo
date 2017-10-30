@@ -55,36 +55,36 @@ class listScreen extends Component {
         <Content>
           <Label>Sort type by</Label>
           <ListItem
-          onPress={() => this.setState({ radioSelect_AtoZ: true, radioSelect_ZtoA: false }, () => console.log('A to Z selected'))}
+          onPress={() => this.setState({ radioSelect_AtoZ: true, radioSelect_ZtoA: false })}
           >
             <Text>A to Z</Text>
               <Right>
                 <Radio selected={this.state.radioSelect_AtoZ} />
               </Right>
           </ListItem>
-        <ListItem
-        onPress={() => this.setState({ radioSelect_ZtoA: true, radioSelect_AtoZ: false }, () => console.log('Z to A selected'))}
-        >
-          <Text>Z to A</Text>
-          <Right>
-            <Radio selected={this.state.radioSelect_ZtoA} />
-          </Right>
-        </ListItem>
-          <Label>Course Type</Label>
-          <Picker
-          mode="dropdown"
-          placeholder="Select One"
-          note={false}
-          selectedValue={this.state.courseType}
-          onValueChange={this.onValueChangeType.bind(this)}
+          <ListItem
+          onPress={() => this.setState({ radioSelect_ZtoA: true, radioSelect_AtoZ: false })}
           >
-            <Item label="All" value="all" />
-            <Item label="Classroom" value="classroom" />
-            <Item label="E-learning" value="elearning" />
-            <Item label="Mobile" value="mobile" />
-            <Item label="Webinar" value="webinar" />
-            <Item label="Learning plan" value="learning_plan" />
-          </Picker>
+            <Text>Z to A</Text>
+            <Right>
+              <Radio selected={this.state.radioSelect_ZtoA} />
+            </Right>
+          </ListItem>
+          <Label>Course Type</Label>
+            <Picker
+            mode="dropdown"
+            placeholder="Select One"
+            note={false}
+            selectedValue={this.state.courseType}
+            onValueChange={this.onValueChangeType.bind(this)}
+            >
+              <Item label="All" value="all" />
+              <Item label="Classroom" value="classroom" />
+              <Item label="E-learning" value="elearning" />
+              <Item label="Mobile" value="mobile" />
+              <Item label="Webinar" value="webinar" />
+              <Item label="Learning plan" value="learning_plan" />
+            </Picker>
           <Button
           block primary onPress={() => {
             this.props.filterOrderByType({

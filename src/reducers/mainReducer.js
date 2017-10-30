@@ -49,7 +49,7 @@ export default mainReducer = (state = initialState, action) => {
      if (action.payload.filterOrder === 'AtoZ' && action.payload.filterType === 'all') {
        return {
          data: state.data,
-         dataFilter: state.data.sort((a, b) => (a.course_type.toUpperCase() > b.course_type.toUpperCase()) ? 1 : ((b.course_type.toUpperCase() > a.course_type.toUpperCase()) ? -1 : 0)),
+         dataFilter: state.data.sort((a, b) => (a.course_type.toUpperCase() > b.course_type.toUpperCase()) ? 1 : ((b.course_type.toUpperCase() > a.course_type.toUpperCase()) ? -1 : 0)),  
          isLoading: false,
          error: null,
          radioSelect_AtoZ: true,

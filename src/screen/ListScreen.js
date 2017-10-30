@@ -44,6 +44,7 @@ class listScreen extends Component {
                       <Label>{this.props.data.dataFilter.length} Items</Label>
                     </Item>
                   </CardItem>
+
                     {
                       this.props.data.dataFilter.map((courseInfo, i) => (
                       <CourseItem

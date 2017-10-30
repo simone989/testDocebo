@@ -8,7 +8,6 @@ import filtersScreen from './src/screen/FiltersScreen';
 import store from './src/store';
 
 class App extends Component {
-
   render() {
       const MainNavigator = StackNavigator({
         home: { screen: HomeScreen,
@@ -31,9 +30,8 @@ class App extends Component {
               paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
           }
       });
-
       return (
-        <Provider store={store}>
+        <Provider store={store}> {/* Add store in the project*/}
           <MainNavigator />
         </Provider>
       );

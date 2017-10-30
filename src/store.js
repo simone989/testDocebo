@@ -6,7 +6,7 @@ import ReduxThunk from 'redux-thunk';
 const store = createStore(
   appReducer,
   {},
-  applyMiddleware(logger, ReduxThunk)
+  applyMiddleware(logger, ReduxThunk) /* Add Middleware to the store*/
 );
 
 export default store;
